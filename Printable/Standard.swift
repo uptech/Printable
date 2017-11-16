@@ -10,7 +10,9 @@ import Foundation
 import printing
 
 public func sayHi(name: String) {
-    printing.display((name as NSString).utf8String) // UnsafePointer<Int8>
+    name.withCString({ (ptr) -> Void in
+        printing.display(ptr)
+    })
 }
 
 public func wave(name: String) {
