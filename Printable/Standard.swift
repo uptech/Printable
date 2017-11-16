@@ -7,6 +7,11 @@
 //
 
 import Foundation
+import printing
+
+public func sayHi(name: String) {
+    printing.display((name as NSString).utf8String)
+}
 
 public func helloWorld() {
     print("Printable: Hello World!")

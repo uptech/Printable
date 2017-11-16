@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E9D92BA31FBD6B6D00DC45F4 /* Printable.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D92BA11FBD6B6D00DC45F4 /* Printable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D92BAA1FBD6B8800DC45F4 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92BA91FBD6B8800DC45F4 /* Standard.swift */; };
+		E9D92BB91FBD83F700DC45F4 /* printing.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D92BB21FBD83F700DC45F4 /* printing.h */; };
+		E9D92BBC1FBD83F700DC45F4 /* printing.c in Sources */ = {isa = PBXBuildFile; fileRef = E9D92BB71FBD83F700DC45F4 /* printing.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +19,9 @@
 		E9D92BA21FBD6B6D00DC45F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9D92BA91FBD6B8800DC45F4 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
 		E9D92BAC1FBD6C5800DC45F4 /* PrintableExample.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PrintableExample.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E9D92BB21FBD83F700DC45F4 /* printing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printing.h; sourceTree = "<group>"; };
+		E9D92BB41FBD83F700DC45F4 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
+		E9D92BB71FBD83F700DC45F4 /* printing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printing.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +54,7 @@
 		E9D92BA01FBD6B6D00DC45F4 /* Printable */ = {
 			isa = PBXGroup;
 			children = (
+				E9D92BAD1FBD6FB600DC45F4 /* Dependencies */,
 				E9D92BAB1FBD6BC000DC45F4 /* Example */,
 				E9D92BA11FBD6B6D00DC45F4 /* Printable.h */,
 				E9D92BA21FBD6B6D00DC45F4 /* Info.plist */,
@@ -65,6 +71,40 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		E9D92BAD1FBD6FB600DC45F4 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				E9D92BAF1FBD83F700DC45F4 /* printing */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		E9D92BAF1FBD83F700DC45F4 /* printing */ = {
+			isa = PBXGroup;
+			children = (
+				E9D92BB11FBD83F700DC45F4 /* include */,
+				E9D92BB41FBD83F700DC45F4 /* module.map */,
+				E9D92BB61FBD83F700DC45F4 /* src */,
+			);
+			path = printing;
+			sourceTree = "<group>";
+		};
+		E9D92BB11FBD83F700DC45F4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				E9D92BB21FBD83F700DC45F4 /* printing.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		E9D92BB61FBD83F700DC45F4 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E9D92BB71FBD83F700DC45F4 /* printing.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -73,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D92BA31FBD6B6D00DC45F4 /* Printable.h in Headers */,
+				E9D92BB91FBD83F700DC45F4 /* printing.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D92BBC1FBD83F700DC45F4 /* printing.c in Sources */,
 				E9D92BAA1FBD6B8800DC45F4 /* Standard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,9 +321,14 @@
 				INFOPLIST_FILE = Printable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Printable/Dependencies/printing",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.upte.Printable;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Printable/Dependencies/printing";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,9 +349,14 @@
 				INFOPLIST_FILE = Printable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Printable/Dependencies/printing",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.upte.Printable;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Printable/Dependencies/printing";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

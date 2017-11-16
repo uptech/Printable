@@ -7,6 +7,7 @@ import Printable
 
 Printable.helloWorld()
 
+Printable.sayHi(name: "Cindy")
 
 class MyViewController : UIViewController {
     override func loadView() {

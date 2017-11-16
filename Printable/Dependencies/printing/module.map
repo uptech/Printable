@@ -1,0 +1,4 @@
+module printing [system] {
+	header "include/printing.h"
+	export *
+}
