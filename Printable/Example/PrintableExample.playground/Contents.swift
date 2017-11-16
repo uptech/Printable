@@ -9,6 +9,8 @@ Printable.helloWorld()
 
 Printable.sayHi(name: "Cindy")
 
+Printable.wave(name: "Bob")
+
 class MyViewController : UIViewController {
     override func loadView() {
         let view = UIView()
