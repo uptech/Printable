@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		E9D92BA31FBD6B6D00DC45F4 /* Printable.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D92BA11FBD6B6D00DC45F4 /* Printable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D92BAA1FBD6B8800DC45F4 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92BA91FBD6B8800DC45F4 /* Standard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E9D92B9E1FBD6B6D00DC45F4 /* Printable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Printable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D92BA11FBD6B6D00DC45F4 /* Printable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Printable.h; sourceTree = "<group>"; };
 		E9D92BA21FBD6B6D00DC45F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9D92BA91FBD6B8800DC45F4 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
+		E9D92BAC1FBD6C5800DC45F4 /* PrintableExample.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PrintableExample.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +49,20 @@
 		E9D92BA01FBD6B6D00DC45F4 /* Printable */ = {
 			isa = PBXGroup;
 			children = (
+				E9D92BAB1FBD6BC000DC45F4 /* Example */,
 				E9D92BA11FBD6B6D00DC45F4 /* Printable.h */,
 				E9D92BA21FBD6B6D00DC45F4 /* Info.plist */,
+				E9D92BA91FBD6B8800DC45F4 /* Standard.swift */,
 			);
 			path = Printable;
+			sourceTree = "<group>";
+		};
+		E9D92BAB1FBD6BC000DC45F4 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				E9D92BAC1FBD6C5800DC45F4 /* PrintableExample.playground */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +108,7 @@
 				TargetAttributes = {
 					E9D92B9D1FBD6B6D00DC45F4 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D92BAA1FBD6B8800DC45F4 /* Standard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +268,7 @@
 		E9D92BA71FBD6B6D00DC45F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -266,6 +282,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ch.upte.Printable;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -274,6 +291,7 @@
 		E9D92BA81FBD6B6D00DC45F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
