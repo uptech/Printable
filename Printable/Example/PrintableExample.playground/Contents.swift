@@ -4,12 +4,16 @@ import UIKit
 import PlaygroundSupport
 
 import Printable
+import printing
 
 Printable.helloWorld()
 
 Printable.sayHi(name: "Cindy")
 
 Printable.wave(name: "Bob")
+
+let p = Person(name: NSString(string: "Jake").utf8String, age: 23)
+Printable.dance(person: p)
 
 class MyViewController : UIViewController {
     override func loadView() {
